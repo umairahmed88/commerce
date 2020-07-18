@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+// import CustomButton from '../custom-button/custom-button.component';
 
 export const CollectionItemContainer = styled.div`
     width: 22%;
@@ -6,6 +7,9 @@ export const CollectionItemContainer = styled.div`
     flex-direction: column;
     height: 350px;
     align-items: center;
+    position: relative;
+
+    &:hover {}
 `;
 
 export const ImageContainer = styled.div`
