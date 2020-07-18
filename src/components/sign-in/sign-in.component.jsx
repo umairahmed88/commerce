@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SignInContainer, ButtonContainer } from './sign-in.styles';
+import { SignInContainer, ButtonContainer, SignInTitle } from './sign-in.styles';
 
 import FormInput from '../form-input/form-input.component';
 
@@ -34,7 +34,7 @@ class SignIn extends React.Component{
     render() {
         return(
             <SignInContainer>
-                <h2>I am a family member of this group</h2>
+                <SignInTitle>I am a family member of this group</SignInTitle>
                 <span>Sign in with your email and password</span>
 
                 <form onSubmit={this.handleSubmit}>

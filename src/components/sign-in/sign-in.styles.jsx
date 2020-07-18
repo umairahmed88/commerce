@@ -4,13 +4,13 @@ export const SignInContainer = styled.div`
     width: 380px;
     display: flex;
     flex-direction: column;
-
-    &:title {
-        margin: 10px 0;
-    }
 `;
 
 export const ButtonContainer = styled.div
 `    display: flex;
-    justify-contents: space-between;
+    justify-content: space-between;
+`;
+
+export const SignInTitle = styled.h2`
+    margin: 10px 0;
 `;
