@@ -4,13 +4,13 @@ import { CollectionPreviewContainer, TitleContainer, PreviewContainer } from './
 
 import CollectionItem from '../collection-item/collection-item.component';
 
-const CollectionPreview = ({ title, items}) => (
+const CollectionPreview = ({ title, items }) => (
     <CollectionPreviewContainer>
         <TitleContainer>{title.toUpperCase()}</TitleContainer>
         <PreviewContainer>
             {items
             .filter((item, idx) => idx < 4)
-            .map((item) => (
+            .map(item => (
                 <CollectionItem key={item.id} item={item} /> 
                 ))}
         </PreviewContainer>
