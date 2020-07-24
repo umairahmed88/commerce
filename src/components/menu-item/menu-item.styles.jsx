@@ -1,6 +1,7 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-const MenuItemContainerStyles = css`
+export const MenuItemContainer = styled.div`
+    height: ${({ size }) => (size ? '380px' : '240px')};
     min-width: 30%;
     height: 240px;
     flex: 1 1 auto;
@@ -33,7 +34,7 @@ const MenuItemContainerStyles = css`
 
 `;
 
-const ContentContainerStyles = css`
+export const ContentContainer = styled.div`
     height: 90px;
     padding: 0 25px;
     display: flex;
@@ -45,25 +46,6 @@ const ContentContainerStyles = css`
     opacity: 0.7;
     position: absolute;
 
-    .title {
-    font-weight: bold;
-    margin-bottom: 6px;
-    font-size: 22px;
-    color: #4a4a4a;
-    }
-
-    .subtitle {
-    font-weight: lighter;
-    font-size: 16px;
-    }
-`;
-
-export const MenuItemDiv = styled.div`
-    ${MenuItemContainerStyles}
-`;
-
-export const ContentDiv = styled.div`
-    ${ContentContainerStyles}
 `;
 
 export const BackgroundImageConatiner = styled.div`
@@ -71,4 +53,17 @@ export const BackgroundImageConatiner = styled.div`
     height: 100%;
     background-position: center;
     background-size: cover;
+    background-image: ${({ imageUrl }) => `url(${imageUrl})`};
+`;
+
+export const ContentTitle = styled.span`
+  font-weight: bold;
+  margin-bottom: 6px;
+  font-size: 22px;
+  color: #4a4a4a;
+`;
+
+export const ContentSubtitle = styled.span`
+  font-weight: lighter;
+  font-size: 16px;
 `;

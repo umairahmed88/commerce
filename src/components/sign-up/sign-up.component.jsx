@@ -33,7 +33,7 @@ class SignUp extends React.Component {
             const { user } = await auth.createUserWithEmailAndPassword(
                 email, 
                 password
-                );
+            );
 
             await createUserProfileDocument(user, { displayName });
 
@@ -61,7 +61,7 @@ class SignUp extends React.Component {
             <SignUpContainer>
                 <SignUpTitle>I am new here</SignUpTitle>
                 <span>Sign Up With Your Email And Password</span>
-                <form onSubmit={this.handleSubmit}>
+                <form className='sign-up-form' onSubmit={this.handleSubmit}>
                     <FromInput
                         type='text'
                         name='displayName'
