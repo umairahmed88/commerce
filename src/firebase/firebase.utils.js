@@ -30,12 +30,45 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
                 email,
                 createdAt,
                 ...additionalData
-            })
+            });
         } catch (error) {
             console.log('error creating user', error.msg)
         }
     }
     return userRef;
+};
+
+export const addCollectionAndDocuments = async (
+    collectionKey, 
+    objectsToAdd
+) => {
+    const collectionRef = firestore.collection(collectionKey);
+
+    const batch = firestore.batch();
+    objectsToAdd.forEach(obj => {
+        const newDocRef = collectionRef.doc();
+        batch.set(newDocRef, obj);
+    });
+
+    return await batch.commit();
+};
+
+export const convertCollectionsSnapshotToMap = (collectionsSnapshot) => {
+    const tranformedCollection = collectionsSnapshot.docs.map(docSnapshot => {
+        const { title, items } = docSnapshot.data();
+        
+        return {
+            routeName: encodeURI(title.toLowerCase()),
+            id: docSnapshot.id,
+            title,
+            items
+        };
+    });
+
+    return tranformedCollection.reduce((accumulator, collection) => {
+        accumulator[collection.title.toLowerCase()] = collection;
+        return accumulator;
+    }, {});
 };
 
 firebase.initializeApp(config);
@@ -44,7 +77,7 @@ export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
 const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ promp: 'select_accouny'});
+provider.setCustomParameters({ prompt: 'select_account' });
 export const signInWithGoogle = () => auth.signInWithPopup(provider);
 
 export default firebase;
