@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import CollectionOverview from '../../collections-overview/collections-overview.component';
 import CollectionPage from '../collection/collection.component';
 
+import { fetchCollectionStart } from '../../../redux/shop/shop.actions';
+
 import { 
     firestore, 
     convertCollectionsSnapshotToMap 
